@@ -1,2 +1,3 @@
-This is just a test for git.
-Now I made some changes.
+### This part is just some random shit for testing the git. ###
+Creating a new branch is quick.
+
