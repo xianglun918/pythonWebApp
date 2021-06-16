@@ -12,9 +12,7 @@ All credit to Mr. Liao @https://www.liaoxuefeng.com/
 
 06-10: Day 1 & Day2: Install packages, MySQL server version, and write the backbone of the app. (P.S. some of the functions are deprecated in the newest python. I kept them unchanged, but will change them in future revise.)
 
-06-11: Day 3: Nothing done.
-
-06-12: Day 3: Nothing don.
+06-11 - 06-16: Busy with other things. Temperary stop. 
 
 
 
