@@ -4,7 +4,15 @@ This is a learning project from the tutorial provided by Mr. Xufeng Liao.
 
 All credit to Mr. Liao @https://www.liaoxuefeng.com/
 
-# Diary
+##  Purposes
+
+This project aims to help my enchancing python skills and understanding cocurrent process better.
+
+- [ ] Get the project running with no error.
+- [ ] Fix all deprecated warnings.
+- [ ] Add enough comments for future revise.
+
+##  Diary
 
 06-08: Create the repository and review the "git" operations.
 
@@ -14,5 +22,4 @@ All credit to Mr. Liao @https://www.liaoxuefeng.com/
 
 06-11 - 06-16: Busy with other things. Temperary stop. 
 
-
-
+06-17: Studied and reviewed markdown grammers and techniques. Updated the README.txt. 
