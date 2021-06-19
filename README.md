@@ -2,15 +2,12 @@
 
 This is a learning project from the tutorial provided by Mr. Xufeng Liao.
 
-All credit to Mr. Liao @https://www.liaoxuefeng.com/
+All credit to Mr. Liao and [his website](https://www.liaoxuefeng.com/).
 
 ## Table of Contents
 
-- [A WebApp Learning Project](#a-webapp-learning-project)
-  - [Table of Contents](#table-of-contents)
-  - [Purposes](#purposes)
-  - [Diary](#diary)
-
+- [Purposes](#purposes)
+- [Diary](#diary)
 
 ## Purposes
 
