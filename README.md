@@ -4,9 +4,17 @@ This is a learning project from the tutorial provided by Mr. Xufeng Liao.
 
 All credit to Mr. Liao @https://www.liaoxuefeng.com/
 
+## Table of Contents
+
+- [A WebApp Learning Project](#a-webapp-learning-project)
+  - [Table of Contents](#table-of-contents)
+  - [Purposes](#purposes)
+  - [Diary](#diary)
+
+
 ## Purposes
 
-This project aims to help my enchancing python skills and understanding cocurrent process better.
+This project aims to help me enchancing python skills and understanding cocurrent process better.
 
 - [ ] Get the project running with no error.
 - [ ] Fix all deprecated warnings.
@@ -23,3 +31,5 @@ This project aims to help my enchancing python skills and understanding cocurren
 06-11 - 06-16: Busy with other things. Temperary stop.
 
 06-17: Studied and reviewed markdown grammers and techniques. Updated the README.txt.
+
+06-18: Dealed with the new dish 麻辣小龙虾. Tasty food, satisifying day.
