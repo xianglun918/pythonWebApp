@@ -24,4 +24,4 @@ This project aims to help me enhancing python skills and understanding concurren
 - 06-10: Day 1 & Day2: Install packages, MySQL server version, and write the backbone of the app. (P.S. some of the functions are deprecated in the newest python. I kept them unchanged, but will change them in future revise.)
 - 06-11 - 06-16: Busy with other things. Temporary stop.
 - 06-17: Studied and reviewed markdown grammars and techniques. Updated the README.txt.
-- 06-18: Dealt with the new dish 麻辣小龙虾. Lazy day.
+- 06-18 - 06-19: Family business. Temporary stop.
