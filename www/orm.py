@@ -7,8 +7,7 @@
 @Contact :   xianglun918@qq.com
 '''
 
-import asyncio, logging
-import aiomysql
+import asyncio, logging, aiomysql
 
 def log(sql, args=()):
     logging.info('SQL: %s' % sql)
@@ -25,7 +24,8 @@ async def create_pool(loop, **kw):
         user=kw['user'],
         password=kw['password'],
         db=kw['db'],
-        charset=kw.get('charset', 'utf-8'),
+        # 注：这里把utf-8改为utf8 (默认值为utf8)
+        charset=kw.get('charset', 'utf8'),
         autocommit=kw.get('autocommit', True),
         maxsize=kw.get('maxsize', 10),
         minsize=kw.get('minsize', 10), 
@@ -37,7 +37,7 @@ async def create_pool(loop, **kw):
 async def select(sql, args, size=None):
     log(sql, args)
     global __pool
-    with (await  __pool) as conn:
+    with (await __pool) as conn:
         cur = await conn.cursor(aiomysql.DictCursor)
         # 注意?是SQL的占位符而%s是MySQL的占位符
         # 在select内部自动替换可以防止SQL注入攻击 (坚持使用带参数的SQL)
@@ -169,7 +169,8 @@ class Model(dict, metaclass=ModelMetaclass):
                 logging.debug('using default value for %s: %s' % (key, str(value)))
                 setattr(self, key, value)
         return value
-        
+    
+    # class方法是和class绑定而不是实例，所有子类均可以调用
     @classmethod
     async def findAll(cls, where=None, args=None, **kw):
         ' find objects by where clause. '
