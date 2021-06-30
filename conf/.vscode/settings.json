@@ -1,0 +1,7 @@
+{
+    "python.pythonPath": "/Users/xianglun/miniconda3/envs/WebApp/bin/python3.7",
+    "python.analysis.extraPaths": [
+        "./conf",
+        "./www",
+    ]
+}

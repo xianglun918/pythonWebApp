@@ -1,5 +1,16 @@
+# doctest会搜索那些看起来像是python交互式会话的代码片段并验证结果
+# 例如：(注意doctest仅仅会搜索module最开头的字符串和每个函数内第一个字符串
+# 其他的位置的字符串并不会被找到并测试。）
+'''
+>>> print('Hello world')
+Hello world
+'''
+
 import json, logging, inspect, functools
 
+
+
+    
 ## 建立Page类来处理分页,可以在page_size更改每页项目的个数
 class Page(object):
 
@@ -44,5 +55,6 @@ class APIPermissionError(APIError):
         super(APIPermissionError, self).__init__('permission:forbidden', 'permission', message)
 
 if __name__=='__main__':
+
     import doctest
-    doctest.testmod()
+    doctest.testmod(verbose=True)

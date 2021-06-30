@@ -40,7 +40,7 @@ from datetime import datetime
 from aiohttp import web
 from jinja2 import Environment, FileSystemLoader
 
-# - 暂时还未编写
+# - 暂时还未编写 -> 已经编写了
 from config import configs
 
 import orm
@@ -190,7 +190,7 @@ async def init(loop):
     ])
     init_jinja2(app, filters=dict(datetime=datetime_filter))
     add_routes(app, 'handlers')
-    add_static(app)
+    # add_static(app)
     runner = web.AppRunner(app)
     await runner.setup()
     srv = web.TCPSite(runner, 'localhost', 9000)
@@ -198,6 +198,7 @@ async def init(loop):
     await srv.start()
 
 if __name__ == '__main__':
+    # 创建一个主线程
     loop = asyncio.get_event_loop()
     loop.run_until_complete(init(loop))
     loop.run_forever()
