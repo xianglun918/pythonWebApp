@@ -24,7 +24,7 @@ from aiohttp import web
 ## APIError 是指API调用时发生逻辑错误
 from apis import APIError
 
-## 编写装饰函数 @get()
+## 编写装饰函数 @get() - 给函数绑定上__method__, __route__属性
 def get(path):
     ## Define decorator @get('/path')
     def decorator(func):
@@ -52,8 +52,10 @@ def post(path):
 ## 以下是RequestHandler需要定义的一些函数
 def get_required_kw_args(fn):
     args = []
+    # inspect用于解析参数
     params = inspect.signature(fn).parameters
     for name, param in params.items():
+        # 将fn中定义必须要填入的参数加入到args（有默认值的不算）
         if param.kind == inspect.Parameter.KEYWORD_ONLY and param.default == inspect.Parameter.empty:
             args.append(name)
     return tuple(args)
@@ -62,11 +64,13 @@ def get_named_kw_args(fn):
     args = []
     params = inspect.signature(fn).parameters
     for name, param in params.items():
+        # 跟上面一样，但是包含分配了默认值的参数
         if param.kind == inspect.Parameter.KEYWORD_ONLY:
             args.append(name)
     return tuple(args)
 
 def has_named_kw_args(fn):
+    # 若参数有命名，则返回True
     params = inspect.signature(fn).parameters
     for name, param in params.items():
         if param.kind == inspect.Parameter.KEYWORD_ONLY:
@@ -96,9 +100,11 @@ class RequestHandler(object):
     def __init__(self, app, fn):
         self._app = app
         self._func = fn
+        # Boolean值
         self._has_request_arg = has_request_arg(fn)
         self._has_var_kw_arg = has_var_kw_arg(fn)
         self._has_named_kw_args = has_named_kw_args(fn)
+        # 存储接受参数名字
         self._named_kw_args = get_named_kw_args(fn)
         self._required_kw_args = get_required_kw_args(fn)
 
@@ -153,6 +159,7 @@ class RequestHandler(object):
             return r
         except APIError as e:
             return dict(error=e.error, data=e.data, message=e.message)
+
 ## 定义add_static函数，来注册static文件夹下的文件
 def add_static(app):
     path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static')
