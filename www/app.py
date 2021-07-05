@@ -47,7 +47,7 @@ import orm
 from coroweb import add_routes, add_static
 
 ## handlers 是url处理模块, 当handlers.py在API章节里完全编辑完再将下一行代码的双井号去掉
-## from handlers import cookie2user, COOKIE_NAME
+from handlers import cookie2user, COOKIE_NAME
 
 # Day-1 Content
 #################################################################
@@ -98,20 +98,20 @@ async def logger_factory(app, handler):
 
 ## 认证处理工厂--把当前用户绑定到request上，并对URL/manage/进行拦截，检查当前用户是否是管理员身份
 ## 需要handlers.py的支持, 当handlers.py在API章节里完全编辑完再将下面代码的双井号去掉
-##async def auth_factory(app, handler):
-##    async def auth(request):
-##        logging.info('check user: %s %s' % (request.method, request.path))
-##        request.__user__ = None
-##        cookie_str = request.cookies.get(COOKIE_NAME)
-##        if cookie_str:
-##            user = await cookie2user(cookie_str)
-##            if user:
-##                logging.info('set current user: %s' % user.email)
-##                request.__user__ = user
-##        if request.path.startswith('/manage/') and (request.__user__ is None or not request.__user__.admin):
-##            return web.HTTPFound('/signin')
-##        return (await handler(request))
-##    return auth
+async def auth_factory(app, handler):
+   async def auth(request):
+       logging.info('check user: %s %s' % (request.method, request.path))
+       request.__user__ = None
+       cookie_str = request.cookies.get(COOKIE_NAME)
+       if cookie_str:
+           user = await cookie2user(cookie_str)
+           if user:
+               logging.info('set current user: %s' % user.email)
+               request.__user__ = user
+       if request.path.startswith('/manage/') and (request.__user__ is None or not request.__user__.admin):
+           return web.HTTPFound('/signin')
+       return (await handler(request))
+   return auth
 
 ## 数据处理工厂
 async def data_factory(app, handler):
